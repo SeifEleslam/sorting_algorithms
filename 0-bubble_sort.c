@@ -1,6 +1,21 @@
 #include "sort.h"
 
 /**
+ * swap_array - Prints an array of integers
+ * @array: The array to be printed
+ * @idx1: Number of elements in @array
+ * @idx2: Number of elements in @array
+ */
+void swap_array(int *array, size_t idx1, size_t idx2)
+{
+	int temp;
+
+	temp = array[idx1];
+	array[idx1] = array[idx2];
+	array[idx2] = temp;
+}
+
+/**
  * bubble_sort - Prints an array of integers
  * @array: The array to be printed
  * @size: Number of elements in @array
