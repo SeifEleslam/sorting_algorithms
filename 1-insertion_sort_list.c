@@ -39,7 +39,6 @@ void swap_nodes(listint_t *node1, listint_t *node2)
  */
 void insertion_sort_list(listint_t **list)
 {
-	size_t i;
 	listint_t *curr, *next;
 
 	if (!list || !*list)
