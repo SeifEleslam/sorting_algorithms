@@ -28,6 +28,8 @@ void insertion_sort_list(listint_t **list)
 	size_t i;
 	listint_t *curr, *next;
 
+	if (!list || !*list)
+		return;
 	for (curr = (*list)->next; curr;)
 	{
 		next = curr->next;
