@@ -1,6 +1,20 @@
 #include "sort.h"
 
 /**
+ * assure_node - Prints an array of integers
+ * @node: The array to be printed
+ */
+void assure_node(listint_t *node)
+{
+	if (!node)
+		return;
+	if (node->prev)
+		node->prev->next = node;
+	if (node->next)
+		node->next->prev = node;
+}
+
+/**
  * swap_nodes - Prints an array of integers
  * @node1: The array to be printed
  * @node2: Number of elements in @array
