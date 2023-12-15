@@ -16,8 +16,9 @@ void swap_array(int *array, size_t idx1, size_t idx2)
 }
 
 /**
- * insertion_sort_list - Prints an array of integers
- * @list: The array to be printed
+ * selection_sort - Prints an array of integers
+ * @array: The array to be printed
+ * @size: Number of elements in @array
  */
 void selection_sort(int *array, size_t size)
 {
