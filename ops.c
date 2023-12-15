@@ -39,28 +39,28 @@
  * @node1: The array to be printed
  * @node2: Number of elements in @array
  */
-void insert_before_node(listint_t *node1, listint_t *node2)
-{
-	if (node1->prev)
-		node1->prev->next = node1->next;
-	if (node1->next)
-		node1->next->prev = node1->prev;
-	node1->prev = node2->prev;
-	node2->prev = node1;
-	node1->next = node2;
-	assure_node(node1);
-}
+// void insert_before_node(listint_t *node1, listint_t *node2)
+// {
+// 	if (node1->prev)
+// 		node1->prev->next = node1->next;
+// 	if (node1->next)
+// 		node1->next->prev = node1->prev;
+// 	node1->prev = node2->prev;
+// 	node2->prev = node1;
+// 	node1->next = node2;
+// 	assure_node(node1);
+// }
 
-/**
- * assure_node - Prints an array of integers
- * @node: The array to be printed
- */
-void assure_node(listint_t *node)
-{
-	if (!node)
-		return;
-	if (node->prev)
-		node->prev->next = node;
-	if (node->next)
-		node->next->prev = node;
-}
+// /**
+//  * assure_node - Prints an array of integers
+//  * @node: The array to be printed
+//  */
+// void assure_node(listint_t *node)
+// {
+// 	if (!node)
+// 		return;
+// 	if (node->prev)
+// 		node->prev->next = node;
+// 	if (node->next)
+// 		node->next->prev = node;
+// }
