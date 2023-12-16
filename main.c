@@ -48,7 +48,7 @@ int main(void)
 
 	print_array(array, n);
 	printf("\n");
-	quick_sort(array, n);
+	shell_sort(array, n);
 	printf("\n");
 	print_array(array, n);
 	return (0);
