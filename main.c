@@ -43,7 +43,7 @@ listint_t *create_listint(const int *array, size_t size)
  */
 int main(void)
 {
-	int array[] = {99, 99};
+	int array[] = {5};
 	size_t n = sizeof(array) / sizeof(array[0]);
 
 	print_array(array, n);
