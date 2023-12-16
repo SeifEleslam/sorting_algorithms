@@ -50,14 +50,12 @@ void cocktail_sort_list(listint_t **list)
 		while (loop)
 		{
 			compared = dir == 0 ? curr->prev : curr->next;
-			if ((curr->n <= compared->n && dir == 0) ||
-				(curr->n >= compared->n && dir != 0))
+			if ((curr->n < compared->n && dir == 0) ||
+				(curr->n > compared->n && dir != 0))
 			{
 				swap_nodes(curr, compared), swaps += 1;
-				*list = curr == *list
-							? compared
-						: compared == *list ? curr
-											: *list;
+				while ((*list)->prev)
+					*list = (*list)->prev;
 				curr = dir == 0 ? curr->next : curr->prev;
 				print_list(*list);
 			}
