@@ -1,23 +1,9 @@
 #include "sort.h"
 
 /**
- * swap_array - Prints an array of integers
- * @array: The array to be printed
- * @idx1: Number of elements in @array
- * @idx2: Number of elements in @array
- */
-void swap_array(int *array, size_t idx1, size_t idx2)
-{
-	int temp;
-
-	temp = array[idx1];
-	array[idx1] = array[idx2];
-	array[idx2] = temp;
-}
-
-/**
  * Knuth_gap - Prints an array of integers
  * @size: Number of elements in @array
+ * Return: gap value
  */
 size_t Knuth_gap(size_t size)
 {
@@ -25,11 +11,11 @@ size_t Knuth_gap(size_t size)
 
 	while (gap < size)
 		gap = gap * 3 + 1;
-	return gap / 3;
+	return (gap / 3);
 }
 
 /**
- * selection_sort - Prints an array of integers
+ * shell_sort - Prints an array of integers
  * @array: The array to be printed
  * @size: Number of elements in @array
  */
