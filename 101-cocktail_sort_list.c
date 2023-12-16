@@ -42,7 +42,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *curr = (*list)->next, *compared;
 	size_t dir = 0, swaps = 1, loop = 1;
 
-	if (!list || !*list)
+	if (!list || !*list || !(*list)->next)
 		return;
 	while (swaps > 0)
 	{
