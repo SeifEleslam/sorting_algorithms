@@ -25,7 +25,7 @@ void counting_sort(int *array, size_t size)
 		count_arr[i] = count_arr[i] + count_arr[i - 1];
 	print_array(count_arr, (size_t)max);
 	for (i = 0; i < size; i++)
-		out_arr[count_arr[array[i]] - 1] = array[i];
+		out_arr[count_arr[array[i]] - 1] = array[i], count_arr[array[i]]--;
 	for (i = 0; i < size; i++)
 		array[i] = out_arr[i];
 	free(out_arr), free(count_arr);
