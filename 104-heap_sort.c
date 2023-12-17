@@ -45,7 +45,7 @@ void heapify(int *array, size_t size, size_t max_size, size_t idx)
 			max = _max(array + 2 * idx + 1, array + 2 * idx + 2);
 	else
 		max = array + 2 * idx + 1;
-	if (*max >= array[idx])
+	if (*max > array[idx])
 		swap_array(&array[idx], max), print_array(array, size),
 			heapify(array, size, max_size, idx);
 }
