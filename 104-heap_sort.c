@@ -41,10 +41,8 @@ void heapify(int *array, size_t size, size_t max_size, size_t idx)
 
 	if (idx * 2 + 1 >= max_size)
 		return;
-	heapify(array, size, max_size, idx * 2 + 1);
 	if (idx * 2 + 2 < max_size)
-		heapify(array, size, max_size, idx * 2 + 2),
-			max = _max(array, 2 * idx + 1, 2 * idx + 2);
+		max = _max(array, 2 * idx + 1, 2 * idx + 2);
 	else
 		max = 2 * idx + 1;
 	if (array[max] > array[idx])
