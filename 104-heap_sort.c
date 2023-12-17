@@ -29,6 +29,9 @@ int *_max(int *num1, int *num2)
  * heapify - Prints an array of integers
  * @array: The array to be printed
  * @size: Number of elements in @array
+ * @max_size: Number of elements in @array
+ * @idx: Number of elements in @array
+ *
  */
 void heapify(int *array, size_t size, size_t max_size, size_t idx)
 {
@@ -43,7 +46,8 @@ void heapify(int *array, size_t size, size_t max_size, size_t idx)
 	else
 		max = array + 2 * idx + 1;
 	if (*max > array[idx])
-		swap_array(&array[idx], max), print_array(array, size), heapify(array, size, max_size, idx);
+		swap_array(&array[idx], max), print_array(array, size),
+			heapify(array, size, max_size, idx);
 }
 
 /**
@@ -54,7 +58,8 @@ void heapify(int *array, size_t size, size_t max_size, size_t idx)
 void heap_sort(int *array, size_t size)
 {
 	size_t i;
-	if (!array || size <= 1)
+
+	if (!array || size <= 0)
 		return;
 	for (i = 0; i < size - 1; i++)
 		heapify(array, size, size - i, 0),
