@@ -16,10 +16,11 @@ void swap_array(int *array, size_t idx1, size_t idx2)
 }
 
 /**
- * swap_array - Prints an array of integers
+ * _max - Prints an array of integers
  * @array: The array to be printed
  * @idx1: Number of elements in @array
  * @idx2: Number of elements in @array
+ * Return: idx of max
  */
 size_t _max(int *array, size_t idx1, size_t idx2)
 {
