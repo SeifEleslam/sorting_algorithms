@@ -39,18 +39,21 @@ void merge(int *array, size_t size, size_t dir)
  * bitonize - Prints an array of integers
  * @array: The array to be printed
  * @size: Number of elements in @array
+ * @total_size: Number of elements in @array
  * @dir: Number of elements in @array
  */
 void bitonize(int *array, size_t size, size_t total_size, size_t dir)
 {
 	if (size < 2)
 		return;
-	printf("Merging [%ld/%ld] (%s):\n", size, total_size, dir == 0 ? "UP" : "DOWN");
+	printf("Merging [%ld/%ld] (%s):\n", size,
+		   total_size, dir == 0 ? "UP" : "DOWN");
 	print_array(array, size);
 	bitonize(array, size / 2, total_size, 0);
 	bitonize(array + (size / 2), size / 2, total_size, 1);
 	merge(array, size, dir);
-	printf("Result [%ld/%ld] (%s):\n", size, total_size, dir == 0 ? "UP" : "DOWN");
+	printf("Result [%ld/%ld] (%s):\n", size,
+		   total_size, dir == 0 ? "UP" : "DOWN");
 	print_array(array, size);
 }
 
