@@ -49,7 +49,7 @@ void recursive_quick_sort(int *array, size_t size,
 }
 
 /**
- * quick_sort - Prints an array of integers
+ * quick_sort_hoare - Prints an array of integers
  * @array: The array to be printed
  * @size: Number of elements in @array
  */
