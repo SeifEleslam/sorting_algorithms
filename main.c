@@ -1,55 +1,109 @@
-#include "sort.h"
+#include "deck.h"
 
-/**
- * create_listint - Creates a doubly linked list from an array of integers
- *
- * @array: Array to convert to a doubly linked list
- * @size: Size of the array
- *
- * Return: Pointer to the first element of the created list. NULL on failure
- */
-listint_t *create_listint(const int *array, size_t size)
+void print_deck(const deck_node_t *deck)
 {
-	listint_t *list;
-	listint_t *node;
-	int *tmp;
+	size_t i;
+	char kinds[4] = {'S', 'H', 'C', 'D'};
 
-	list = NULL;
-	while (size--)
+	i = 0;
+	while (deck)
+	{
+		if (i)
+			printf(", ");
+		printf("{%s, %c}", deck->card->value, kinds[deck->card->kind]);
+		if (i == 12)
+			printf("\n");
+		i = (i + 1) % 13;
+		deck = deck->next;
+	}
+}
+
+deck_node_t *init_deck(const card_t cards[52])
+{
+	deck_node_t *deck;
+	deck_node_t *node;
+	size_t i;
+
+	i = 52;
+	deck = NULL;
+	while (i--)
 	{
 		node = malloc(sizeof(*node));
 		if (!node)
 			return (NULL);
-		tmp = (int *)&node->n;
-		*tmp = array[size];
-		node->next = list;
+		node->card = &cards[i];
+		node->next = deck;
 		node->prev = NULL;
-		list = node;
-		if (list->next)
-			list->next->prev = list;
+		if (deck)
+			deck->prev = node;
+		deck = node;
 	}
-	return (list);
+	return (deck);
 }
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 int main(void)
 {
-	int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-	size_t n = sizeof(array) / sizeof(array[0]);
+	card_t cards[52] = {
+		{"King", SPADE},
+		{"Jack", CLUB},
+		{"Ace", CLUB},
+		{"Queen", HEART},
+		{"10", HEART},
+		{"4", HEART},
+		{"3", HEART},
+		{"3", DIAMOND},
+		{"5", HEART},
+		{"5", SPADE},
+		{"6", HEART},
+		{"5", DIAMOND},
+		{"6", SPADE},
+		{"9", HEART},
+		{"7", DIAMOND},
+		{"Jack", SPADE},
+		{"Ace", DIAMOND},
+		{"9", CLUB},
+		{"Jack", DIAMOND},
+		{"7", SPADE},
+		{"King", DIAMOND},
+		{"10", CLUB},
+		{"8", CLUB},
+		{"9", SPADE},
+		{"6", CLUB},
+		{"3", SPADE},
+		{"8", SPADE},
+		{"9", DIAMOND},
+		{"2", HEART},
+		{"4", DIAMOND},
+		{"6", DIAMOND},
+		{"3", CLUB},
+		{"Queen", CLUB},
+		{"10", SPADE},
+		{"8", DIAMOND},
+		{"8", HEART},
+		{"Ace", SPADE},
+		{"Jack", HEART},
+		{"2", CLUB},
+		{"4", SPADE},
+		{"2", SPADE},
+		{"2", DIAMOND},
+		{"King", CLUB},
+		{"Queen", SPADE},
+		{"Queen", DIAMOND},
+		{"7", CLUB},
+		{"7", HEART},
+		{"5", CLUB},
+		{"10", DIAMOND},
+		{"4", CLUB},
+		{"King", HEART},
+		{"Ace", HEART},
+	};
+	deck_node_t *deck;
 
-	print_array(array, n);
+	deck = init_deck(cards);
+	print_deck(deck);
 	printf("\n");
-	quick_sort_hoare(array, n);
+	sort_deck(&deck);
 	printf("\n");
-	print_array(array, n);
+	print_deck(deck);
 	return (0);
 }
